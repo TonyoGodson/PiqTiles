@@ -110,9 +110,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/splash_tv1"
+            android:layout_marginHorizontal="102dp"
             android:layout_marginTop="-10dp"
             android:fontFamily="@font/alex_brush"
-            android:gravity="center"
+            android:gravity="start"
+            android:text="Tiles matching game"
             android:textSize="30sp" />
     </RelativeLayout>
 
