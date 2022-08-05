@@ -18,7 +18,7 @@ import com.godston.emojitiles.databinding.ActivitySplashScreenBinding
 
 class SplashScreenActivity : AppCompatActivity() {
 
-    val SPLASH_SCREEN = 20000
+    val SPLASH_SCREEN = 10000
     private lateinit var binding: ActivitySplashScreenBinding
     private lateinit var spinAnimation1: Animation
     private lateinit var spinAnimation2: Animation
@@ -101,40 +101,40 @@ class SplashScreenActivity : AppCompatActivity() {
             splashCV4.startAnimation(spinAnimation4)
         }, -100)
         Handler().postDelayed({
-            splashIV1.setImageResource(R.drawable.the_icon)
+            splashIV1.setImageResource(R.drawable.emoji_01)
         }, 3000)
         Handler().postDelayed({
-            splashIV2.setImageResource(R.drawable.classic_lady)
+            splashIV2.setImageResource(R.drawable.emoji_02)
         }, 3500)
         Handler().postDelayed({
             splashIV1.setImageResource(R.drawable.emoji_rose)
             splashIV2.setImageResource(R.drawable.emoji_rose)
         }, 4000)
         Handler().postDelayed({
-            splashIV3.setImageResource(R.drawable.the_icon)
+            splashIV3.setImageResource(R.drawable.emoji_01)
         }, 4500)
         Handler().postDelayed({
-            splashIV4.setImageResource(R.drawable.the_icon)
+            splashIV4.setImageResource(R.drawable.emoji_01)
         }, 5000)
         Handler().postDelayed({
             splashIV3.setImageResource(R.drawable.emoji_rose)
             splashIV4.setImageResource(R.drawable.emoji_rose)
         }, 5500)
         Handler().postDelayed({
-            splashIV1.setImageResource(R.drawable.the_icon)
+            splashIV1.setImageResource(R.drawable.emoji_01)
         }, 6000)
         Handler().postDelayed({
-            splashIV4.setImageResource(R.drawable.the_icon)
+            splashIV4.setImageResource(R.drawable.emoji_01)
         }, 6500)
         Handler().postDelayed({
             splashIV1.alpha = 0.6F
             splashIV4.alpha = 0.6F
         }, 7000)
         Handler().postDelayed({
-            splashIV2.setImageResource(R.drawable.classic_lady)
+            splashIV2.setImageResource(R.drawable.emoji_02)
         }, 7500)
         Handler().postDelayed({
-            splashIV3.setImageResource(R.drawable.classic_lady)
+            splashIV3.setImageResource(R.drawable.emoji_02)
         }, 8000)
         Handler().postDelayed({
             splashIV2.alpha = 0.6F
