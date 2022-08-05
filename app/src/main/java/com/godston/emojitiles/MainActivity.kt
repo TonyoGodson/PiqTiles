@@ -132,7 +132,10 @@ class MainActivity : AppCompatActivity() {
             val userImageList = document.toObject(UserImageList::class.java)
             if (userImageList?.images == null) {
                 Log.e(TAG, "Invalid custom game data from Firestore")
-                Snackbar.make(clRoot, "Sorry, we couldn't find any such game, '$customGameName'", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(clRoot, "Sorry, we couldn't find any such game, '$customGameName'", Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(Color.parseColor("#FF0000"))
+                    .setTextColor(Color.parseColor("#FFFFFF"))
+                    .show()
                 return@addOnSuccessListener
             }
             val numCards = userImageList.images.size * 2
@@ -141,7 +144,10 @@ class MainActivity : AppCompatActivity() {
             for (imageUrl in userImageList.images) {
                 Picasso.get().load(imageUrl).fetch()
             }
-            Snackbar.make(clRoot, "You are now playing '$customGameName'!", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(clRoot, "You are now playing '$customGameName'!", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(Color.parseColor("#FF0000"))
+                .setTextColor(Color.parseColor("#FFFFFF"))
+                .show()
             gameName = customGameName
             setUpBoard()
         }.addOnFailureListener { exception ->
@@ -236,11 +242,17 @@ class MainActivity : AppCompatActivity() {
     }
     private fun updateGameWithFlip(position: Int) {
         if (memoryGame.haveWonGame()) {
-            Snackbar.make(clRoot, "You have already won", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(clRoot, "You have already won", Snackbar.LENGTH_SHORT)
+                .setBackgroundTint(Color.parseColor("#FF0000"))
+                .setTextColor(Color.parseColor("#FFFFFF"))
+                .show()
             return
         }
         if (memoryGame.isCardFaceUp(position)) {
-            Snackbar.make(clRoot, "Invalid move", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(clRoot, "Invalid move", Snackbar.LENGTH_SHORT)
+                .setBackgroundTint(Color.parseColor("#FF0000"))
+                .setTextColor(Color.parseColor("#FFFFFF"))
+                .show()
             return
         }
         if (memoryGame.flipCard(position)) {
@@ -253,7 +265,10 @@ class MainActivity : AppCompatActivity() {
             tvNumPairs.setTextColor(color)
             tvNumPairs.text = "Pairs: ${memoryGame.numPairsFound} / ${boardSize.getNumPairs()}"
             if (memoryGame.haveWonGame()) {
-                Snackbar.make(clRoot, "You won! Congratulations", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(clRoot, "You won! Congratulations", Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(Color.parseColor("#FF0000"))
+                    .setTextColor(Color.parseColor("#FFFFFF"))
+                    .show()
                 CommonConfetti.rainingConfetti(clRoot, intArrayOf(Color.YELLOW, Color.GREEN, Color.RED, Color.MAGENTA)).oneShot()
             }
         }

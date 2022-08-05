@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">PiqTiles</string>
     <string name="enter_game_name">Enter Game name</string>
+    <string name="piqtiles">PiqTiles</string>
 </resources>
