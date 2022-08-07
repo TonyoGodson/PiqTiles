@@ -8,7 +8,13 @@
         <entry key="app/src/main/res/drawable/ic_flight.xml" value="0.2775" />
         <entry key="app/src/main/res/drawable/ic_info.xml" value="0.184" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1495" />
+        <entry key="app/src/main/res/drawable/ic_off_sound.xml" value="0.249" />
+        <entry key="app/src/main/res/drawable/ic_offsound.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/ic_on_sound.xml" value="0.141" />
         <entry key="app/src/main/res/drawable/ic_refresh.xml" value="0.1145" />
+        <entry key="app/src/main/res/drawable/ic_sound1.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/ic_sound2.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/ic_sound_on.xml" value="0.116" />
         <entry key="app/src/main/res/drawable/progress_bar_background.xml" value="0.1265" />
         <entry key="app/src/main/res/layout/activity_create.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />

@@ -4,16 +4,15 @@ import android.animation.ArgbEvaluator
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
+import android.media.AudioManager
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RadioGroup
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -30,6 +29,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,11 +43,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvNumMoves: TextView
     private lateinit var tvNumPairs: TextView
 
+    private var playSound: MediaPlayer? = null
+
     private var db = Firebase.firestore
     private var gameName: String? = null
     private var customGameImages: List<String>? = null
     private lateinit var memoryGame: MemoryGame
     private lateinit var adapter: MemoryBoardAdapter
+    private var count: Int = 0
 
     private var boardSize: BoardSize = BoardSize.EASY
     private lateinit var binding: ActivityMainBinding
@@ -72,6 +75,19 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.ic_sound -> {
+                count += 1
+                item.setIcon(R.drawable.ic_sound_on)
+                Toast.makeText(this, "sound off", Toast.LENGTH_SHORT).show()
+                if (count > 1) {
+                    count = 0
+                    item.setIcon(R.drawable.ic_sound_off)
+                    Toast.makeText(this, "sound on", Toast.LENGTH_SHORT).show()
+                }
+            }
+            R.id.ic_info -> {
+                showInfoDialog()
+            }
             R.id.mi_refresh -> {
                 if (memoryGame.getNumMoves() > 0 && !memoryGame.haveWonGame()) {
                     showAlertDialog(
@@ -85,9 +101,6 @@ class MainActivity : AppCompatActivity() {
                     setUpBoard()
                 }
                 return true
-            }
-            R.id.ic_info -> {
-                showInfoDialog()
             }
             R.id.mi_new_size -> {
                 showNewSizeDialog()
