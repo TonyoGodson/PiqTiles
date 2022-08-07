@@ -19,4 +19,11 @@
         android:id="@+id/mi_download"
         android:title="Download custom game"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/ic_info"
+        android:enabled="true"
+        android:icon="@drawable/ic_info"
+        android:title="info"
+        android:visible="true"
+        app:showAsAction="always" />
 </menu>

@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -11,6 +12,7 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -37,6 +39,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var splashTV1: TextView
     private lateinit var splashTV2: TextView
+    private lateinit var splashProgress: ProgressBar
 
     private lateinit var charSequense: CharSequence
     private var index: Int = 0
@@ -65,6 +68,14 @@ class SplashScreenActivity : AppCompatActivity() {
         splashTV1 = binding.splashTv1
         splashTV1.setTextColor(Color.parseColor("#FFFFFF"))
         splashTV2 = binding.splashTv2
+
+        splashProgress = binding.splashProgressBar
+        splashProgress.max = SPLASH_SCREEN
+        val currentProgress = 10000
+        ObjectAnimator.ofInt(splashProgress, "progress", currentProgress)
+            .setDuration(SPLASH_SCREEN.toLong())
+            .start()
+
 
         spinAnimation()
         Handler().postDelayed({
@@ -111,7 +122,7 @@ class SplashScreenActivity : AppCompatActivity() {
             splashIV2.setImageResource(R.drawable.emoji_rose)
         }, 4000)
         Handler().postDelayed({
-            splashIV3.setImageResource(R.drawable.emoji_01)
+            splashIV3.setImageResource(R.drawable.emoji_02)
         }, 4500)
         Handler().postDelayed({
             splashIV4.setImageResource(R.drawable.emoji_01)

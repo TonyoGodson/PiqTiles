@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.TextView
@@ -85,6 +86,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 return true
             }
+            R.id.ic_info -> {
+                showInfoDialog()
+            }
             R.id.mi_new_size -> {
                 showNewSizeDialog()
                 return true
@@ -116,7 +120,7 @@ class MainActivity : AppCompatActivity() {
     private fun showDownloadDialog() {
         val boardDownloadView = LayoutInflater.from(this).inflate(R.layout.dialog_download_board, null)
         showAlertDialog(
-            "Fetch Emoji Game",
+            "Fetch PiqTiles Game",
             boardDownloadView,
             View.OnClickListener {
 //            Grab the text of the game name that the user wants to download
@@ -160,7 +164,7 @@ class MainActivity : AppCompatActivity() {
         val radioGroupSize = boardSizeView.findViewById<RadioGroup>(R.id.radioGroup)
 
         showAlertDialog(
-            "Create your own memory board",
+            "Create your own PiqTiles board",
             boardSizeView,
             View.OnClickListener {
                 val desiredboardSize = when (radioGroupSize.checkedRadioButtonId) {
@@ -208,6 +212,20 @@ class MainActivity : AppCompatActivity() {
                 positiveClickListener.onClick(null)
             }.show()
     }
+
+    private fun showInfoDialog() {
+        val logoutDialogLayout = LayoutInflater.from(this).inflate(R.layout.how_to_play, null)
+        val alertBuilder = AlertDialog.Builder(this)
+            .setView(logoutDialogLayout)
+        val showDialog = alertBuilder.show()
+
+        val howToPlayCloseBtn: Button? =
+            logoutDialogLayout.findViewById(R.id.howToPlayCloseBtn)
+        howToPlayCloseBtn?.setOnClickListener {
+            showDialog.dismiss()
+        }
+    }
+
     private fun setUpBoard() {
         supportActionBar?.title = gameName ?: getString(R.string.app_name)
         when (boardSize) {

@@ -2,4 +2,11 @@
     <string name="app_name">PiqTiles</string>
     <string name="enter_game_name">Enter Game name</string>
     <string name="piqtiles">PiqTiles</string>
+    <string name="close">Close</string>
+    <string name="how_to_play_title">How to Play</string>
+    <string name="how_to_play">Tap the tiles randomly to reveal the picture it contains. \n\nIf two tiles tapped consecutively do not have the same picture, they get closed back but if they have the same picture they remain open. \n\nFor every two taps, the number of moves increase by one. \n\nTry to match all the tiles with as few moves possible.</string>
+    <string name="create_custom_game">Create Custom Game</string>
+    <string name="custom_game_instructions">You can create your own special tiles with the pictures you like. \n\nJust select 4 x 2, 6 x 3 or 6 x 4 and choose your desired pictures.\n\nCustom games created are saved remotely on the internet and can be downloaded and played by others too.\n\nYou can download and play custom games created by others as well.</string>
+    <string name="download_custom_game">Download custom Game</string>
+    <string name="download_game_instructions">You can download custom piqtiles game board you previously created. \n\nJust type the name of the game and tap ok.</string>
 </resources>
